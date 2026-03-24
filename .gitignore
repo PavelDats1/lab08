@@ -1,0 +1,14 @@
+boost_1_69_0/
+boost_1_69_0.tar.gz
+boost_1_69_0.tar.gz.1
+.DS_Store
+Thumbs.db
+Thumbs.db
+
+*.tmp
+*.bak
+*.backup
+*.log
+
+
+
