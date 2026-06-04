@@ -1,0 +1,33 @@
+services:
+  db:
+    image: mariadb:10.6
+    container_name: lab08_db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: messages_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    restart: unless-stopped
+
+  web:
+    build: .
+    container_name: lab08_web
+    environment:
+      DB_HOST: db
+      DB_USER: user
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: messages_db
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    volumes:
+      - ./main.py:/app/main.py
+    restart: unless-stopped
+
+volumes:
+  db_data:
