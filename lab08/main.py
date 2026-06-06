@@ -8,7 +8,7 @@ def get_db_connection():
     return mysql.connector.connect(
         host=os.environ.get('DB_HOST', 'db'),
         user=os.environ.get('DB_USER', 'user'),
-        password=os.environ.get('DB_PASSWORD', 'password'),
+        password=os.environ.get('DB_PASSWORD'),
         database=os.environ.get('DB_NAME', 'messages_db')
     )
 

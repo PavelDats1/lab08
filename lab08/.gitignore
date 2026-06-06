@@ -2,5 +2,3 @@ __pycache__/
 *.pyc
 .env
 db_data/
-.env
-.env
